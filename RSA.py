@@ -1,8 +1,6 @@
-from mvpa2.suite import *
-from numpy import log, savetxt
-import numpy as np
-import sys,os
+
 import argparse
+from subjectData import subjectData
 
 
 
@@ -18,3 +16,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    subject = subjectData(args.rootDir, args.ID, args.valence, args.hemisphere)
+    traitData = subject.importSimilarity()
+    neuralData = subject.importNeural()
+
+    print ' '

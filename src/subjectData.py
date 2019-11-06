@@ -1,5 +1,3 @@
-import os
-import numpy as np
 from mvpa2.suite import *
 
 
@@ -83,9 +81,9 @@ class subjectData:
 
         # subset the dataset based on valence
         if self.valence == "P":
-            brainData_subset = braindata[brainData.targets == 1]
+            brainData_subset = brainData[brainData.targets == 1]
         else:
-            brainData_subset = braindata[brainData.targets == -1]
+            brainData_subset = brainData[brainData.targets == -1]
 
         # remove invariant features of the dataset to free some memory
         brainData_subset = remove_invariant_features(brainData_subset)
