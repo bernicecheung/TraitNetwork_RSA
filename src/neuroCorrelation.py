@@ -1,5 +1,5 @@
 import numpy as np
-
+from scipy import stats
 class neuroCorrelation:
     """
     This class is for the correlation between trait similarity matrix and neural correlation matrix
