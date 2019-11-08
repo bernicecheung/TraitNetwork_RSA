@@ -14,6 +14,8 @@ if __name__ == "__main__":
                         choices=["P", "N"], default='', help='Choose the valence of the dataset. P for positive, N for negative')
     parser.add_argument('--hemisphere', dest='hemisphere', type=str,
                         choices=["R", "L"], default ='', help='Choose the hemisphere mask. R for right, L for left')
+    parser.add_argument('--rad', dest='rad', type=int,
+                        default='', help='Set the radius for search light')
 
     # generate inputs
     inputs = parser.parse_args()
@@ -35,8 +37,9 @@ if __name__ == "__main__":
     matrixCorr = neuroCorrelation(traitData)
 
     # set up searchlight parameters
-    # set the radius to 3
-    rad = 3
+    # set the radius based on the input
+    rad = inputs.rad
+
     # Fisher's z-transformation for correlation coefficient
     FisherTransform = FxMapper('features', lambda r: 0.5 * np.log((1 + r) / (1 - r)))
 
