@@ -1,19 +1,18 @@
-
 import argparse
 from subjectData import subjectData
 from neuroCorrelation import neuroCorrelation
 from mvpa2.suite import *
 
 if __name__ == "__main__":
-
     # define import arguments
-    parser = argparse.ArgumentParser(description = 'RSA dataset parameters')
+    parser = argparse.ArgumentParser(description='RSA dataset parameters')
     parser.add_argument('--rootDir', dest='rootDir', default='', help='Path to the root directory of all inputs')
-    parser.add_argument('--ID', dest='ID',type = int, default='', help='Subject ID (starts with 1)')
+    parser.add_argument('--ID', dest='ID', type=int, default='', help='Subject ID (starts with 1)')
     parser.add_argument('--valence', dest='valence', type=str,
-                        choices=["P", "N"], default='', help='Choose the valence of the dataset. P for positive, N for negative')
+                        choices=["P", "N"], default='',
+                        help='Choose the valence of the dataset. P for positive, N for negative')
     parser.add_argument('--hemisphere', dest='hemisphere', type=str,
-                        choices=["R", "L"], default ='', help='Choose the hemisphere mask. R for right, L for left')
+                        choices=["R", "L"], default='', help='Choose the hemisphere mask. R for right, L for left')
     parser.add_argument('--rad', dest='rad', type=int,
                         default='', help='Set the radius for search light')
 
@@ -58,7 +57,7 @@ if __name__ == "__main__":
 
     # save the output
     outputDir = os.path.join(inputs.rootDir, "RSA", "searchLightResult", "Subject{n}".format(n=inputs.ID),
-                               "sub{n}_sl_results_{v}{h}_P.nii.gz".format(n=inputs.ID, v=inputs.valence, h=inputs.hemisphere))
+                             "sub{n}_sl_results_{v}{h}_P_R{r}.nii.gz".format(n=inputs.ID, v=inputs.valence, h=inputs.hemisphere, r=inputs.rad))
     sl_image.to_filename(outputDir)
 
     print ("Complete with subject{n}".format(n=inputs.ID))
