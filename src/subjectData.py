@@ -6,7 +6,7 @@ class subjectData:
     and neural data (in a form of fmri_dataset in mvpa2)
     """
 
-    def __init__(self, rootDir, ID, valence, hemisphere):
+    def __init__(self, rootDir, ID, valence, hemisphere=None):
         """
         Below are the required input.
 
@@ -42,7 +42,8 @@ class subjectData:
                                     "sub{n}_att_val.txt".format(n=ID))
 
         # set the directory for hemisphere brain mask
-        self.maskDir = os.path.join(self.rootDir, "brainMask", "MNI152_hemisphere_{h}.nii.gz".format(h=hemisphere))
+
+        self.maskDir = hemisphere if hemisphere is not None else os.path.join(self.rootDir, "brainMask", "MNI152_hemisphere_{h}.nii.gz".format(h=hemisphere))
 
         # set the directory for trait similarity matrix
         self.traitDir = os.path.join(rootDir, "RSA", "similarityMatrix", "Subject{n}".format(n=ID),
