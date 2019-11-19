@@ -8,7 +8,8 @@
 #SBATCH --mem=50G              ### Total memory
 #SBATCH --account=sanlab      ### Account used for job submission
 
-module spider python
+module load prl
+module load python/2.7.13
 PYTHONPATH="${PYTHONPATH}:/projects/sanlab/kcheung3/traitNetwork_MVPA/RSA/src"
 export PYTHONPATH
 python /projects/sanlab/kcheung3/traitNetwork_MVPA/RSA/RSA.py --rootDir /projects/sanlab/kcheung3/traitNetwork_MVPA/ --ID 1 --valence P --rad 5
