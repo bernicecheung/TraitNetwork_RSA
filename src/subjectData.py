@@ -6,7 +6,7 @@ class subjectData:
     and neural data (in a form of fmri_dataset in mvpa2)
     """
 
-    def __init__(self, rootDir, ID, valence, hemisphere):
+    def __init__(self, rootDir, ID, valence, hemisphere="W"):
         """
         Below are the required input.
 
