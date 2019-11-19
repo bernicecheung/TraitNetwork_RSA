@@ -20,7 +20,7 @@ class subjectData:
         # check the directory input and make sure the format is correct
 
         if not os.path.exists(rootDir):
-            print 'ERROR: %s does not exist!' % rootDir  # if this is for python 3, it needs a ()
+            print 'ERROR: %s does not exist!' % rootDir
         if not rootDir.endswith('/'):
             rootDir = ''.join([rootDir, '/'])
 
@@ -51,7 +51,7 @@ class subjectData:
         self.traitDir = os.path.join(rootDir, "RSA", "similarityMatrix", "Subject{n}".format(n=ID),
                                      "sub{n}_similarity_{v}.txt".format(n=ID, v=valence.lower()))
 
-    def importSimilarity(self):
+    def importSimilarity(self)
         """
         This function is for importing the trait similarity matrix for a given valence and putting it into a vector
         :return: A vector of the lower triangle of the similarity matrix
