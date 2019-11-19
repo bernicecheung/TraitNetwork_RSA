@@ -6,7 +6,7 @@ class subjectData:
     and neural data (in a form of fmri_dataset in mvpa2)
     """
 
-    def __init__(self, rootDir, ID, valence, hemisphere=None):
+    def __init__(self, rootDir, ID, valence, hemisphere):
         """
         Below are the required input.
 
@@ -42,14 +42,16 @@ class subjectData:
                                     "sub{n}_att_val.txt".format(n=ID))
 
         # set the directory for hemisphere brain mask
-
-        self.maskDir = hemisphere if hemisphere is not None else os.path.join(self.rootDir, "brainMask", "MNI152_hemisphere_{h}.nii.gz".format(h=hemisphere))
+        if hemisphere == 'W':
+            self.maskDir = os.path.join(self.rootDir, "brainMask","MNI152_T1_2mm_brain_mask.nii.gz")
+        else:
+            self.maskDir = os.path.join(self.rootDir, "brainMask", "MNI152_hemisphere_{h}.nii.gz".format(h=hemisphere))
 
         # set the directory for trait similarity matrix
         self.traitDir = os.path.join(rootDir, "RSA", "similarityMatrix", "Subject{n}".format(n=ID),
                                      "sub{n}_similarity_{v}.txt".format(n=ID, v=valence.lower()))
 
-    def importSimilarity(self):
+    def importSimilarity(self)
         """
         This function is for importing the trait similarity matrix for a given valence and putting it into a vector
         :return: A vector of the lower triangle of the similarity matrix

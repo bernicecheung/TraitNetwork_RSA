@@ -12,7 +12,7 @@ if __name__ == "__main__":
                         choices=["P", "N"], default='',
                         help='Choose the valence of the dataset. P for positive, N for negative')
     parser.add_argument('--hemisphere', dest='hemisphere', type=str,
-                        choices=["R", "L"], default=None, help='Choose the hemisphere mask. R for right, L for left')
+                        choices=["R", "L", "W"], default="W", help='Choose the hemisphere mask. R for right, L for left')
     parser.add_argument('--rad', dest='rad', type=int,
                         default='', help='Set the radius for search light')
 
