@@ -20,7 +20,7 @@ class subjectData:
         # check the directory input and make sure the format is correct
 
         if not os.path.exists(rootDir):
-            print 'ERROR: %s does not exist!' % rootDir  # if this is for python 3, it needs a ()
+            print ('ERROR: %s does not exist!' % rootDir)  # if this is for python 3, it needs a ()
         if not rootDir.endswith('/'):
             rootDir = ''.join([rootDir, '/'])
 
